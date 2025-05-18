@@ -2,112 +2,160 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <!-- Add script tag -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./starter/css/normalize.css" />
+    <link rel="stylesheet" href="./starter/css/styles.css" />
     <script src="./js/scripts.js" defer></script>
     <title>My Personal Portfolio</title>
 </head>
 
 <body>
     <header>
-        <h1>Insert your name here</h1>
+        <h1>Yaqut Khalaf</h1>
         <nav>
             <ul>
-                <a href='#aboutMeContainer'>
-                    <li>About</li>
-                </a>
-                <a href='#projectsContainer'>
-                    <li>Projects</li>
-                </a>
-                <a href='#contactContainer'>
-                    <li>Contact</li>
-                </a>
+                <a href="#aboutMeContainer"><li>About Me</li></a>
+                <a href="#projectsContainer"><li>Projects</li></a>
+                <a href="#contactContainer"><li>Contact</li></a>
             </ul>
         </nav>
     </header>
+
     <main>
-        <section id="aboutMeContainer" >
+        <section id="aboutMeContainer">
             <h2>About Me</h2>
             <div id="aboutMe">
-                <!-- populate with data: 2 children -->
-                <!-- need to add <p> with bio -->
-                <!-- need to add <div> with class of 'headshotContainer' with an <img> child -->
-            </div>
+               
+                <p>
+                            My name is Yaqut Khalaf. I’m studying at the university, majoring in engineering. I have a passion for technology, programming, and web development.
+          I enjoy creating projects that solve real-world problems and learning new skills. This portfolio showcases some of my work and interests.
 
+                </p>
+                <!-- Add a headshot image -->
+                <div class="headshotContainer">
+                    <img src="./starter/images/img1.jpg" alt="Headshot of Insert your name here" />
+                </div>
+            </div>
         </section>
+
         <section id="projectsContainer">
             <h2>Projects</h2>
-            <div id="projectSection">
-                    
-                <sidebar id="projectList">
 
-                    <!-- populate with data -->
-                    <!-- each project should be a <div> with a class of 'projectCard' -->
-                    <!-- each <div> should have an id attribute equal to the project_id -->
-                    <!-- each <div> should have a background set to the card_image value and aligned correctly -->
-                    <!-- each <div> should have the name and the short_description -->
+            <div id="projectNavArrows">
+                <button id="prevProject" class="arrow-left">←</button>
+                <button id="nextProject" class="arrow-right">→</button>
+            </div>
 
-                </sidebar>
-                <div id="projectNavArrows">
-                    <!-- You must create javascript to scroll the projectList element. Scrollbars have been removed in the CSS but you can enable them again by commenting out code until your js is complete -->
-                    <!-- This site is responsive and so are the arrows. Design is set up as mobile-first -->
-                    <!-- at mobile sizes they move left and right -->
-                    <!-- at desktop sizes the same buttons move up and down -->
-                    <span class="arrow-left"></span>
-                    <span class="arrow-right"></span>
+            <div id="projectList" style="display:flex; overflow-x:auto; gap:15px; scroll-behavior:smooth;">
+                <div class="projectCard" id="project1" style="background-image: url('./starter/images/photo1.gif'); padding: 20px; color: white; min-width: 250px; border-radius: 10px;">
+                    <h3>Project 1</h3>
+                    <p>Sliding Man and Monsters Game using Q-Learning in C++.</p>
                 </div>
-
-                <div id="projectSpotlight">
-                    <!-- remember the background image for this section -->
-
-                    <div id="spotlightTitles">
-                        <!-- populate with default data -->
-                        <!-- defult data should be the first record in the projectsData.json file -->
-                        <!-- populate with the project_name and the long_description-->
-                        <!-- add an external link  -->
-
-                    </div>
+                <div class="projectCard" id="project2" style="background-image: url('./starter/images/Screenshot\ 2025-05-17\ 213615.png'); padding: 20px; color: white; min-width: 250px; border-radius: 10px;">
+                    <h3>Project 2</h3>
+                    <p>Portfolio Website built with HTML, CSS, and JavaScript.</p>
                 </div>
+                <div class="projectCard" id="project3" style="background-image: url('./starter/images/photo3.jpg'); padding: 20px; color: white; min-width: 250px; border-radius: 10px;">
+                    <h3>Project 3</h3>
+                    <p>Autonomous Robot Simulation using ROS and Python.</p>
+                </div>
+                <!-- Add more projects as needed -->
+            </div>
+
+            <div id="projectSpotlight">
+                <h3>Project 1: Sliding Man and Monsters</h3>
+                <p>This project uses Q-Learning to create an intelligent agent that moves in four directions with a 5% chance of sliding or failure, coded in C++.</p></p>
+                <a href="https://github.com/Yaqutkh">View GitHub</a>
             </div>
         </section>
+
         <section id="contactContainer">
-            <!-- create client-side validation to check and make sure the fields aren't empty and no illegal characters are included -->
-            <!-- the email input has been set with a type of 'text' instead of 'email' in order to bypass the browser checks and use your js checks for formatting -->
-            <!-- email regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ -->
-            <!-- invalid character regex = /[^a-zA-Z0-9@._-]/ -->
-            <!-- maxLength attribute removed from textArea so you can use your js to check -->
-            <!-- make sure you update the charactersLeft div with the current character count -->
-            <!-- populate the emailError and messageError divs with information explaining to the user why validation failed and how to fix it -->
             <h2>Contact Me</h2>
-            <p>Send me your email address and a message and I'll get back to you as soon as possible.</p>
-            <form id="formSection">
-                <div class='formField'>
-
-                    <label for='contactEmail'>Your email address:</label>
-                    <input id='contactEmail' name='contactEmail' type="text" />
-                    <div id="emailError"></div>
-
+            <p>If you want to get in touch, please fill out the form below:</p>
+            <form id="formSection" novalidate>
+                <div class="formField">
+                    <label for="contactEmail">Your email address:</label>
+                    <input id="contactEmail" name="contactEmail" type="text" />
+                    <div id="emailError" style="color: var(--error);"></div>
                 </div>
-                <div class='formField'>
- 
-                    <label for='contactMessage'>Your message:</label>
+                <div class="formField">
+                    <label for="contactMessage">Your message:</label>
                     <div>
                         <div id="charactersLeft">Characters: 0/300</div>
-                        <textarea id='contactMessage' name="contactMessage" rows="5"></textarea>
-                        <div id="messageError"></div>
-
+                        <textarea id="contactMessage" name="contactMessage" rows="5"></textarea>
+                        <div id="messageError" style="color: var(--error);"></div>
                     </div>
                 </div>
-                <button id='formsubmit' type="submit">Submit</button>
+                <button id="formsubmit" type="submit">Submit</button>
             </form>
         </section>
     </main>
-    <footer>
 
+    <footer>
+        <p>© 2025 Yaqoot Khalaf. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Project navigation buttons functionality
+        const projectList = document.getElementById('projectList');
+        const nextBtn = document.getElementById('nextProject');
+        const prevBtn = document.getElementById('prevProject');
+
+        nextBtn.addEventListener('click', () => {
+            projectList.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            projectList.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        // Contact form validation and character count (example)
+        const emailInput = document.getElementById('contactEmail');
+        const messageInput = document.getElementById('contactMessage');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const charactersLeft = document.getElementById('charactersLeft');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const invalidCharRegex = /[^a-zA-Z0-9@._-]/;
+
+        messageInput.addEventListener('input', () => {
+            const length = messageInput.value.length;
+            charactersLeft.textContent = `Characters: ${length}/300`;
+            if (length > 300) {
+                messageError.textContent = 'Message exceeds 300 characters limit.';
+            } else {
+                messageError.textContent = '';
+            }
+        });
+
+        document.getElementById('formSection').addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valid = true;
+
+            if (!emailRegex.test(emailInput.value) || invalidCharRegex.test(emailInput.value)) {
+                emailError.textContent = 'Please enter a valid email address without invalid characters.';
+                valid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            if (messageInput.value.trim() === '' || messageInput.value.length > 300) {
+                messageError.textContent = 'Please enter a message up to 300 characters.';
+                valid = false;
+            } else {
+                messageError.textContent = '';
+            }
+
+            if (valid) {
+                alert('Thank you for your message! I will get back to you soon.');
+             
+                e.target.reset();
+                charactersLeft.textContent = 'Characters: 0/300';
+            }
+        });
+    </script>
 </body>
 
 </html>
